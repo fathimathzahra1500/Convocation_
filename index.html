@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Poster Image */
+.poster {
+    width: 100%;
+    height: auto;
+}
+
+/* Name Text (IMPORTANT PART) */
+.name {
+    position: absolute;
+    top: 72%;   /* 👈 adjust cheyyam */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a1a1a;
+    text-align: center;
+    width: 80%;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <img src="poster.png" class="poster">
+    
+    <!-- CHANGE NAME HERE -->
+    <div class="name">Your Name Here</div>
+</div>
+
+</body>
+</html>
