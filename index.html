@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convocation</title>
+
+<style>
+body {
+    text-align: center;
+    font-family: Arial;
+    background: #f2f2f2;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+    width: 90%;
+    max-width: 500px;
+}
+
+.poster {
+    width: 100%;
+}
+
+.name {
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    width: 70%;
+}
+
+input {
+    margin-top: 20px;
+    padding: 10px;
+    width: 80%;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #0d1b2a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="posterArea">
+    <img src="poster.png" class="poster">
+    <div class="name" id="nameText">Your Name Here</div>
+</div>
+
+<br>
+
+<input type="text" id="nameInput" placeholder="Type your name here">
+
+<br>
+
+<button onclick="downloadImage()">Download</button>
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+const input = document.getElementById("nameInput");
+const nameText = document.getElementById("nameText");
+
+input.addEventListener("input", () => {
+    nameText.textContent = input.value || "Your Name Here";
+});
+
+function downloadImage() {
+    html2canvas(document.getElementById("posterArea")).then(canvas => {
+        let link = document.createElement("a");
+        link.download = "convocation.png";
+        link.href = canvas.toDataURL();
+        link.click();
+    });
+}
+</script>
+
+</body>
+</html>
